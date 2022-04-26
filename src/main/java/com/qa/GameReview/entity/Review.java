@@ -35,7 +35,6 @@ public class Review {
 
 	@ManyToOne(optional = true, fetch = FetchType.EAGER)
 	@JoinColumn(name = "game_id", referencedColumnName = "id")
-	@JsonIgnore
 	private Game game;
 
 	public Review() {
