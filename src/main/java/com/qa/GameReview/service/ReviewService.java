@@ -75,7 +75,7 @@ public class ReviewService {
 	}
 
 	// update review by id
-	public ReviewDTO updatePost(UpdateReviewDTO reviewDTO, int id) {
+	public ReviewDTO updateReview(UpdateReviewDTO reviewDTO, int id) {
 		if (reviewRepository.existsById(id)) {
 			Review savedReview = reviewRepository.getById(id);
 			savedReview.setRating(reviewDTO.getRating());
