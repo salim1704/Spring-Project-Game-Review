@@ -53,7 +53,6 @@ public class GameService {
 			return this.mapToDTO(game.get());
 		}
 		throw new EntityNotFoundException("Game with id " + id + " not found");
-//		return this.toDTO(user.orElseThrow(() -> new EntityNotFoundException("User not found with id " + id)));
 	}
 
 	public GameDTO createGame(NewGameDTO game) {

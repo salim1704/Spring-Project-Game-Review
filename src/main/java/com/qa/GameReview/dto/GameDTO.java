@@ -18,7 +18,6 @@ public class GameDTO {
 	private String genre;
 
 	@NotNull
-	@Pattern(regexp = "^(3|7|12|16|18)$", message = "Invalid Rating")
 	private int ageRating;
 
 	@NotNull
@@ -29,7 +28,7 @@ public class GameDTO {
 	}
 
 	public GameDTO(int id, @NotNull @NotBlank String title, @NotNull String genre,
-			@NotNull @Pattern(regexp = "^(3|7|12|16|18)$", message = "Invalid Rating") int ageRating,
+			@NotNull int ageRating,
 			@NotNull int releaseYear) {
 		super();
 		this.id = id;
@@ -40,7 +39,7 @@ public class GameDTO {
 	}
 
 	public GameDTO(@NotNull @NotBlank String title, @NotNull String genre,
-			@NotNull @Pattern(regexp = "^(3|7|12|16|18)$", message = "Invalid Rating") int ageRating,
+			@NotNull int ageRating,
 			@NotNull int releaseYear) {
 		super();
 		this.title = title;

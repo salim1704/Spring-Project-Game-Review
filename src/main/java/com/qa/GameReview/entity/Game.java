@@ -1,5 +1,6 @@
 package com.qa.GameReview.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,36 +31,37 @@ public class Game {
 	private String genre;
 
 	@NotNull
-	@Pattern(regexp = "^(3|7|12|16|18)$", message = "Invalid Rating")
 	private int ageRating;
 
 	@NotNull
-	private int releaseYear;
+	private Integer releaseYear;
 
 	@OneToMany(mappedBy = "game", targetEntity = Review.class, fetch = FetchType.LAZY)
 	private List<Review> reviews;
 
-	public Game(int id, @NotNull @NotBlank String title, @NotNull String genre,
-			@NotNull @Pattern(regexp = "^(3|7|12|16|18)$", message = "Invalid Rating") int ageRating,
-			@NotNull int releaseYear, List<Review> reviews) {
+	
+	public Game() {
+		super();
+		this.reviews = new ArrayList<>();
+	}
+	
+	public Game(int id, String title, String genre,int ageRating, Integer releaseYear) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.genre = genre;
 		this.ageRating = ageRating;
 		this.releaseYear = releaseYear;
-		this.reviews = reviews;
+		this.reviews = new ArrayList<>();
 	}
 
-	public Game(@NotNull @NotBlank String title, @NotNull String genre,
-			@NotNull @Pattern(regexp = "^(3|7|12|16|18)$", message = "Invalid Rating") int ageRating,
-			@NotNull int releaseYear, List<Review> reviews) {
+	public Game(String title, String genre, int ageRating, Integer releaseYear) {
 		super();
 		this.title = title;
 		this.genre = genre;
 		this.ageRating = ageRating;
 		this.releaseYear = releaseYear;
-		this.reviews = reviews;
+		this.reviews = new ArrayList<>();
 	}
 
 	public int getId() {
@@ -98,7 +100,7 @@ public class Game {
 		return releaseYear;
 	}
 
-	public void setReleaseYear(int releaseYear) {
+	public void setReleaseYear(Integer releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 
@@ -110,15 +112,16 @@ public class Game {
 		this.reviews = reviews;
 	}
 
+	
 	@Override
 	public String toString() {
 		return "Game [id=" + id + ", title=" + title + ", genre=" + genre + ", ageRating=" + ageRating
-				+ ", releaseYear=" + releaseYear + ", reviews=" + reviews + "]";
+				+ ", releaseYear=" + releaseYear + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(ageRating, genre, id, releaseYear, reviews, title);
+		return Objects.hash(ageRating, genre, id, releaseYear, title);
 	}
 
 	@Override
@@ -131,9 +134,9 @@ public class Game {
 			return false;
 		Game other = (Game) obj;
 		return ageRating == other.ageRating && Objects.equals(genre, other.genre) && id == other.id
-				&& releaseYear == other.releaseYear && Objects.equals(reviews, other.reviews)
-				&& Objects.equals(title, other.title);
+				&& releaseYear == other.releaseYear && Objects.equals(title, other.title);
 	}
+
 
 	
 }

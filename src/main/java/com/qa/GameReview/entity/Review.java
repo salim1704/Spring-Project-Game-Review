@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table
+@Table(name = "review")
 public class Review {
 
 	@Id
@@ -42,23 +42,20 @@ public class Review {
 
 	}
 
-	public Review(int id, @NotNull @Min(1) @Max(10) int rating,
-			@Size(min = 0, max = 500, message = "max 500 characters") String review) {
+	public Review(int id, int rating, String review) {
 		super();
 		this.id = id;
 		this.rating = rating;
 		this.review = review;
 	}
 
-	public Review(@NotNull @Min(1) @Max(10) int rating,
-			@Size(min = 0, max = 500, message = "max 500 characters") String review) {
+	public Review(int rating, String review) {
 		super();
 		this.rating = rating;
 		this.review = review;
 	}
 
-	public Review(int id, @NotNull @Min(1) @Max(10) int rating,
-			@Size(min = 0, max = 500, message = "max 500 characters") String review, Game game) {
+	public Review(int id, int rating,String review, Game game) {
 		super();
 		this.id = id;
 		this.rating = rating;
@@ -66,8 +63,7 @@ public class Review {
 		this.game = game;
 	}
 
-	public Review(@NotNull @Min(1) @Max(10) int rating,
-			@Size(min = 0, max = 500, message = "max 500 characters") String review, Game game) {
+	public Review( int rating, String review, Game game) {
 		super();
 		this.rating = rating;
 		this.review = review;
