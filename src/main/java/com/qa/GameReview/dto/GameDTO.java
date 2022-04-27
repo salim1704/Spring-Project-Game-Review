@@ -27,9 +27,7 @@ public class GameDTO {
 		super();
 	}
 
-	public GameDTO(int id, @NotNull @NotBlank String title, @NotNull String genre,
-			@NotNull int ageRating,
-			@NotNull int releaseYear) {
+	public GameDTO(int id, String title, @NotNull String genre,int ageRating, int releaseYear) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -38,9 +36,7 @@ public class GameDTO {
 		this.releaseYear = releaseYear;
 	}
 
-	public GameDTO(@NotNull @NotBlank String title, @NotNull String genre,
-			@NotNull int ageRating,
-			@NotNull int releaseYear) {
+	public GameDTO(String title, String genre, int ageRating, int releaseYear) {
 		super();
 		this.title = title;
 		this.genre = genre;

@@ -34,10 +34,9 @@ public class DevStartupListener implements ApplicationListener<ApplicationReadyE
 				List.of(new Game("God Of War", "Adventure", 18, 2018), new Game ("Elden Ring","RPG", 18 , 2022)));
 
 		Game game =  games.stream().filter(g -> g.getTitle().equals("God Of War")).findFirst().orElse(null);
-
-		List<Review> reviews = reviewRepository.saveAll(List.of(new Review(10, "10/10", game),
-				new Review(10,"Best game ive ever played" , game),
-				new Review(10, "Outstanding game, so much detail", game)));
+		Game game2 =  games.stream().filter(g -> g.getTitle().equals("Elden Ring")).findFirst().orElse(null);
+		List<Review> reviews = reviewRepository.saveAll(List.of(new Review(10,"Best game ive ever played" , game),
+				new Review(10, "Outstanding game, so much detail", game2)));
 
 	}
 

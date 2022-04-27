@@ -86,7 +86,7 @@ public class GameService {
 	public List<ReviewDTO> getGameReviews(int gameId) {
 		GameDTO game = this.getGame(gameId);
 		List<ReviewDTO> reviews = reviewService.getReviewsByGameId(gameId);
-		reviews.forEach(review -> review.setGameDTO(game));
+		reviews.forEach(review -> review.setGame(game));
 		return reviews;
 	}
 }
