@@ -12,6 +12,7 @@ create table review (
 id integer not null auto_increment,
 review varchar(500),
 rating integer not null check (rating>=1 AND rating<=10),
-movie_id integer, primary key (id));
+game_id integer, primary key (id),
+foreign key (game_id) references game(id)
+);
 
-alter table review add constraint FK8378dhlpvq0e9tnkn9mx0r64i foreign key (game_id) references game (id);
