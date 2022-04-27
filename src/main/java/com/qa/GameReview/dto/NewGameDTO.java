@@ -16,7 +16,6 @@ public class NewGameDTO {
 	private String genre;
 
 	@NotNull
-	@Pattern(regexp = "^(3|7|12|16|18)$", message = "Invalid Rating")
 	private int ageRating;
 
 	@NotNull
