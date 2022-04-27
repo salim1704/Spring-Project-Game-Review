@@ -1,4 +1,4 @@
-drop table if exists movie CASCADE;
+drop table if exists game CASCADE;
 drop table if exists review CASCADE;
 
 create table game (id integer not null auto_increment, genre varchar(64) not null, age_rating integer not null , release_year integer not null, title varchar(64) not null, primary key (id));
