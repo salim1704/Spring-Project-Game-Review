@@ -24,6 +24,15 @@ public class NewGameDTO {
 	public NewGameDTO() {
 		super();
 	}
+	
+	public NewGameDTO(String title, String genre, int ageRating,int releaseYear) {
+		super();
+		this.title = title;
+		this.genre = genre;
+		this.ageRating = ageRating;
+		this.releaseYear = releaseYear;
+	}
+
 
 	public String getTitle() {
 		return title;
