@@ -21,13 +21,13 @@ public class GameDTO {
 	private int ageRating;
 
 	@NotNull
-	private int releaseYear;
+	private Integer releaseYear;
 
 	public GameDTO() {
 		super();
 	}
 
-	public GameDTO(int id, String title, @NotNull String genre,int ageRating, int releaseYear) {
+	public GameDTO(int id, String title, @NotNull String genre,int ageRating, Integer releaseYear) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -36,7 +36,7 @@ public class GameDTO {
 		this.releaseYear = releaseYear;
 	}
 
-	public GameDTO(String title, String genre, int ageRating, int releaseYear) {
+	public GameDTO(String title, String genre, int ageRating, Integer releaseYear) {
 		super();
 		this.title = title;
 		this.genre = genre;
@@ -80,7 +80,7 @@ public class GameDTO {
 		return releaseYear;
 	}
 
-	public void setReleaseYear(int releaseYear) {
+	public void setReleaseYear(Integer releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 
@@ -107,5 +107,5 @@ public class GameDTO {
 		return ageRating == other.ageRating && Objects.equals(genre, other.genre) && id == other.id
 				&& releaseYear == other.releaseYear && Objects.equals(title, other.title);
 	}
-
 }
+	

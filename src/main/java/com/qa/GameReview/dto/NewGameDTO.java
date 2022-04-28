@@ -19,13 +19,13 @@ public class NewGameDTO {
 	private int ageRating;
 
 	@NotNull
-	private int releaseYear;
+	private Integer releaseYear;
 
 	public NewGameDTO() {
 		super();
 	}
 	
-	public NewGameDTO(String title, String genre, int ageRating,int releaseYear) {
+	public NewGameDTO(String title, String genre, int ageRating, Integer releaseYear) {
 		super();
 		this.title = title;
 		this.genre = genre;
