@@ -64,7 +64,7 @@ public class GameControllerSystemIntegrationTest {
 	}
 
 	@Test
-	public void getAllUsersTest() throws Exception {
+	public void getAllGamesTest() throws Exception {
 		// create a http request builder
 		// - when sending a request with mockmvc, we use the path only ("/user") for
 		// example. This
@@ -86,7 +86,7 @@ public class GameControllerSystemIntegrationTest {
 	}
 
 	@Test
-	public void createUserTest() throws Exception {
+	public void createGameTest() throws Exception {
 		NewGameDTO newGame = new NewGameDTO();
 		newGame.setTitle("Fifa 22");
 		newGame.setGenre("Sports");

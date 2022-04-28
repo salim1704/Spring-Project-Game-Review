@@ -36,7 +36,7 @@ public class GameController {
 	}
 
 	@GetMapping
-	public ResponseEntity<List<GameDTO>> getUsers() {
+	public ResponseEntity<List<GameDTO>> getGames() {
 		return ResponseEntity.ok(gameService.getGames());
 	}
 
