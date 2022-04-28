@@ -105,7 +105,8 @@ public class GameDTO {
 			return false;
 		GameDTO other = (GameDTO) obj;
 		return ageRating == other.ageRating && Objects.equals(genre, other.genre) && id == other.id
-				&& releaseYear == other.releaseYear && Objects.equals(title, other.title);
+				&& Objects.equals(releaseYear, other.releaseYear) && Objects.equals(title, other.title);
 	}
+
 }
 	

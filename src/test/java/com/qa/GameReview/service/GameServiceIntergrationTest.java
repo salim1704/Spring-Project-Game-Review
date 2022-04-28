@@ -20,6 +20,7 @@ import com.qa.GameReview.dto.NewGameDTO;
 import com.qa.GameReview.entity.Game;
 import com.qa.GameReview.repository.GameRepository;
 
+@SpringBootTest
 @Sql(scripts = { "classpath:schema.sql", "classpath:game-data.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles({ "test" }) // use the application-test.properties file
 public class GameServiceIntergrationTest {

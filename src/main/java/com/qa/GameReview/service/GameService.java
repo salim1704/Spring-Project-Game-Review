@@ -69,7 +69,6 @@ public class GameService {
 			savedGame.setGenre(game.getGenre());
 			savedGame.setAgeRating(game.getAgeRating());
 			savedGame.setReleaseYear(game.getReleaseYear());
-			gameRepository.save(savedGame);
 			return this.mapToDTO(gameRepository.save(savedGame));
 		}
 		throw new EntityNotFoundException("Game with id " + id + " not found");
