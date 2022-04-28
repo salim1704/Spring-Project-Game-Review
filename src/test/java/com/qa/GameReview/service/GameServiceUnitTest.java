@@ -30,10 +30,10 @@ public class GameServiceUnitTest {
 	private GameRepository gameRepository;
 
 	@Mock
-	private GameService gameService;
-
-	@Mock
 	private ModelMapper modelMapper;
+	
+	@InjectMocks
+	private GameService gameService;
 
 	private List<Game> games;
 	private List<GameDTO> gameDTOs;
@@ -41,8 +41,24 @@ public class GameServiceUnitTest {
 	@BeforeEach
 	public void init() {
 		games = List.of(new Game(1, "God Of War", "Adventure", 18, 2018), new Game(2, "Elden Ring", "RPG", 18, 2022));
-		gameDTOs = List.of(new GameDTO(1, "God Of War", "Adventure", 18, 2018),
-				new GameDTO(2, "Elden Ring", "RPG", 18, 2022));
+		gameDTOs = List.of(new GameDTO(1, "God Of War", "Adventure", 18, 2018), new GameDTO(2, "Elden Ring", "RPG", 18, 2022));
+	}
+
+	@Test
+	public void getAllTest() {
+		// Arrange
+		when(gameRepository.findAll()).thenReturn(games);
+		when(modelMapper.map(games.get(0), GameDTO.class)).thenReturn(gameDTOs.get(0));
+		when(modelMapper.map(games.get(1), GameDTO.class)).thenReturn(gameDTOs.get(1));
+
+		// Act
+		List<GameDTO> actual = gameService.getGames();
+
+		// Assert
+		assertEquals(gameDTOs, actual);
+		verify(gameRepository).findAll();
+		verify(modelMapper).map(games.get(0), GameDTO.class);
+		verify(modelMapper).map(games.get(1), GameDTO.class);
 	}
 
 	@Test
@@ -63,23 +79,6 @@ public class GameServiceUnitTest {
 		verify(gameRepository).findById(id);
 		verify(modelMapper).map(game, GameDTO.class);
 
-	}
-
-	@Test
-	public void getAllTest() {
-		// Arrange
-		when(gameRepository.findAll()).thenReturn(games);
-		when(modelMapper.map(games.get(0), GameDTO.class)).thenReturn(gameDTOs.get(0));
-		when(modelMapper.map(games.get(1), GameDTO.class)).thenReturn(gameDTOs.get(1));
-
-		// Act
-		List<GameDTO> actual = gameService.getGames();
-
-		// Assert
-		assertEquals(gameDTOs, actual);
-		verify(gameRepository).findAll();
-		verify(modelMapper).map(games.get(0), GameDTO.class);
-		verify(modelMapper).map(games.get(1), GameDTO.class);
 	}
 
 	@Test
