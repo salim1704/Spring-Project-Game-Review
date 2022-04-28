@@ -115,4 +115,10 @@ public class GameControllerSystemIntegrationTest {
 		// perform the request
 		mockMvc.perform(request).andExpectAll(statusMatcher, locationMatcher, contentMatcher);
 	}
+
+	@Test
+	public void deleteGameTest() throws Exception {
+		this.mockMvc.perform(MockMvcRequestBuilders.delete("/game/1").contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+	}
 }
