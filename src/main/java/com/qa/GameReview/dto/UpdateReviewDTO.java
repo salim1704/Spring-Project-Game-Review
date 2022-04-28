@@ -20,6 +20,14 @@ public class UpdateReviewDTO {
 	public int getRating() {
 		return rating;
 	}
+	
+
+	public UpdateReviewDTO( int rating, String review) {
+		super();
+		this.rating = rating;
+		this.review = review;
+	}
+
 
 	public void setRating(int rating) {
 		this.rating = rating;
