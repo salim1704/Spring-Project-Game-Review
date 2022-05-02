@@ -9,6 +9,8 @@ import javax.validation.constraints.Size;
 
 public class NewReviewDTO {
 
+	private GameDTO game;
+	
 	@NotNull
 	@Min(1)
 	@Max(10)
@@ -43,14 +45,22 @@ public class NewReviewDTO {
 		this.review = review;
 	}
 
+	public GameDTO getGame() {
+		return game;
+	}
+
+	public void setGame(GameDTO game) {
+		this.game = game;
+	}
+
 	@Override
 	public String toString() {
-		return "NewReviewDTO [rating=" + rating + ", review=" + review + "]";
+		return "NewReviewDTO [game=" + game + ", rating=" + rating + ", review=" + review + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(rating, review);
+		return Objects.hash(game, rating, review);
 	}
 
 	@Override
@@ -62,7 +72,8 @@ public class NewReviewDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		NewReviewDTO other = (NewReviewDTO) obj;
-		return rating == other.rating && Objects.equals(review, other.review);
+		return Objects.equals(game, other.game) && rating == other.rating && Objects.equals(review, other.review);
 	}
+	
 
 }
